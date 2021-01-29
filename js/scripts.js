@@ -1,9 +1,32 @@
 // Business Logic
 
-function Pizza(toppings, size) {
+function Pizza(toppings, size, price) {
   this.toppings = toppings;
   this.size = size;
+  this.price = price;
 }
+
+Pizza.prototype.price = function() {
+  if (this.toppings === "Spinach") {
+    this.price += 1.00;
+  } if (this.toppings === "Tomato") {
+    this.price += 1.00;
+  } if (this.toppings === "Green Pepper") {
+    this.price += 1.00;
+  } if (this.toppings === "Caramelized Onions") {
+    this.price += 2.00;
+  } if (this.toppings === "Feta") {
+    this.price += 2.50;
+  } if (this.price === "Smoked Mozzarella") {
+    this.price += 3.00;
+  } if (this.size === "medium") {
+    this.price += 3.00;
+  } if (this.size === "large") {
+    this.price += 6.00;
+  } if (this.size === "extra large") {
+    this.price += 9.00;
+  }
+};
 
 // User Interface Logic
 
