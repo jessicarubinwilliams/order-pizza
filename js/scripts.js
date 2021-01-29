@@ -6,7 +6,7 @@ $(document).ready(function() {
     $("div#output").show();
     $("input:checkbox[name=topping]:checked").each(function() {
       const toppingSelection = $(this).val();
-      $("#output").append(toppingSelection + "<br>");
+      $("div#output").append(toppingSelection + "<br>");
     });
     $("form#orderForm").hide();
   });
