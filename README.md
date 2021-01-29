@@ -56,8 +56,11 @@ _Alternatively,_
 ## Tests
 
 Describe: Pizza()
-Test: "It will create an object to serve as a blueprint for creating pizza instances"
+Test-1: "It will create an object to serve as a blueprint for creating pizza instances"
 Expect (Pizza("toppings","size")).toEqual(Pizza {toppings: "toppings", size: "size");
+
+Test-2: It will create a prototype to be called on Pizza objects to add determine the price"
+Expect: (pizza.price).toEqual(Pizza {price: 13.00};)
 
 ## Known Bugs
 
