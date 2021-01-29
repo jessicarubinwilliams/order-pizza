@@ -55,9 +55,9 @@ _Alternatively,_
 
 ## Tests
 
-Describe: yourFunctionName()
-Test: "It does something"
-Expect (yourFunctionName("given input")).toEqual("expected output");
+Describe: Pizza()
+Test: "It will create an object to serve as a blueprint for creating pizza instances"
+Expect (Pizza("toppings","size")).toEqual(Pizza {toppings: "toppings", size: "size");
 
 ## Known Bugs
 
