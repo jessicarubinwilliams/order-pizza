@@ -14,23 +14,21 @@
     <div class="jumbotron">
       <h1>Order A Pizza</h1>
     </div>
-    <div id="orderForm">
+    <form id="orderForm">
       <div class="form-group">
         <h3>Select your pizza toppings</h3>
-        <input type="checkbox" name="topping" id="spinach">Spinach<br>
-        <input type="checkbox" name="topping" id="tomato">Tomato<br>
-        <input type="checkbox" name="topping" id="pepper">Green Pepper<br>
-        <input type="checkbox" name="topping" id="onion">Carmalelized Onions<br>
-        <input type="checkbox" name="topping" id="feta">Feta Cheese<br>
-        <input type="checkbox" name="topping" id="mozzarella">Smoked Mozzarella<br>
+        <input type="checkbox" name="topping" value="spinach">Spinach<br>
+        <input type="checkbox" name="topping" value="tomato">Tomato<br>
+        <input type="checkbox" name="topping" value="green pepper">Green Pepper<br>
+        <input type="checkbox" name="topping" value="caramelized onions">Caramelized Onions<br>
+        <input type="checkbox" name="topping" value="feta">Feta<br>
+        <input type="checkbox" name="topping" value="smoked mozzarella">Smoked Mozzarella<br>
       </div>
-      <button type="button" class="btn btn-danger">Place Your Order</button>
-    </div>
+      <button type="submit" class="btn btn-danger">Place Your Order</button>
+    </form>
     <div id="output">
-      Your pizza with the following toppings will be on its way shortly:
+      <p>Your pizza with the following toppings will be on its way shortly:</p>
     </div>
-
   </div>
-  
 </body>
 </html>
