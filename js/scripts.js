@@ -4,13 +4,13 @@ function Order() {
   this.pizzas = {};
 }
 
-Order.prototype.addPizza = function(contact) {
+Order.prototype.addPizza = function(pizza) {
   this.pizzas[pizza.customerName] = pizza;
 }
 
 // Business Logic for Pizza -------
 
-function Pizza(toppings, size, price) {
+function Pizza(toppings, size, price, orderId, customerName) {
   this.toppings = toppings;
   this.size = size;
   this.price = price;
