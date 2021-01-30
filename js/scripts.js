@@ -63,7 +63,7 @@ $(document).ready(function() {
     $("span#orderName").text(orderName);
     const totalDue = ("6") //change value once Business Logic is developed
     $("#price").append(totalDue);
-    $("div#output").show();
+    $("div#order-confirmation").show();
     $("form#orderForm").hide();
   });
 });
