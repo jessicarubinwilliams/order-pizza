@@ -1,8 +1,8 @@
 // Business Logic for Order -------
 
-function Order() (
+function Order() {
   this.pizzas = {};
-)
+}
 
 // Business Logic for Pizza -------
 
