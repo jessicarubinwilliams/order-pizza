@@ -14,6 +14,13 @@ Order.prototype.assignId = function() {
   return this.currentOrderId;
 }
 
+Order.prototype.findContact = function(id) {
+  if (this.pizzas[id] != undefined) {
+    return this.contacts[id];
+  }
+  return false;
+}
+
 // Business Logic for Pizza -------
 
 function Pizza(size, customerName) {
@@ -49,15 +56,26 @@ Pizza.prototype.price = function() {
 
 // User Interface Logic -------
 let order = new Order();
+function displayOrderDetails(orderToDisplay) {
+  let orderConfirmation = $("div#order-confirmation");
+  let htmlForOrderConfirmation = "";
+  Object.keys(OrderToDisplay.pizzas).forEach(function(key) {
+    const pizza = OrderToDisplay.findContact(key);
+    htmlForOrderConfirmation += "<p><span id=" + pizza.customerName + "></span>, your <span class=font-weight-bold' id=" + pizza.size + "></span> pizza with the following toppings will be ready shortly:</p>";
+  });
+  orderConfirmation.htm(htmlForOrderConfirmation);
+};
+
+
 
 $(document).ready(function() {
   $("form#orderForm").submit(function(event) {
     event.preventDefault();
     const sizeSelection = $("#size").val();
     const orderName = $("input#customerName").val();
-    let pizza = new Pizza (sizeSelection, orderName);
-    order.addPizza(pizza);
-    console.log(order.pizzas);
+    let newPizza = new Pizza (sizeSelection, orderName);
+    order.addPizza(newPizza);
+    displayOrderDetails(order);
     // $("input:checkbox[name=topping]:checked").each(function() { //pizza.toppings
     //   const toppingSelection = $(this).val(); //this refers to the specific selector being iterated over
     //   $("div#confirmation").append(toppingSelection + "<br>");
