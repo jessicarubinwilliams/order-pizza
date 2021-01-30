@@ -4,6 +4,10 @@ function Order() {
   this.pizzas = {};
 }
 
+AddressBook.prototype.addPizza = function(contact) {
+  this.pizzas[pizza.customerName] = pizza;
+}
+
 // Business Logic for Pizza -------
 
 function Pizza(toppings, size, price) {
@@ -36,9 +40,9 @@ Pizza.prototype.price = function() {
   } return this.price //Move this functionality to UIL?
 };
 
-Pizza.prototype.addToppings = function(pizza) {
-  this.toppings[pizza.customerName] = pizza;
-}
+// Pizza.prototype.addToppings = function(pizza) {
+//   this.toppings[pizza.customerName] = pizza;
+// }
 
 // User Interface Logic -------
 
