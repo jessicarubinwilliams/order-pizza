@@ -1,4 +1,10 @@
-// Business Logic
+// Business Logic for Order -------
+
+function Order() (
+  this.pizzas = {};
+)
+
+// Business Logic for Pizza -------
 
 function Pizza(toppings, size, price) {
   this.toppings = toppings;
@@ -30,11 +36,11 @@ Pizza.prototype.price = function() {
   } return this.price //Move this functionality to UIL?
 };
 
-Pizza.prototype.addToppings = function() {
-  this.toppings
+Pizza.prototype.addToppings = function(pizza) {
+  this.toppings[pizza.customerName] = pizza;
 }
 
-// User Interface Logic
+// User Interface Logic -------
 
 $(document).ready(function() {
   $("form#orderForm").submit(function(event) {

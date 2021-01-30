@@ -55,12 +55,16 @@ _Alternatively,_
 
 ## Tests
 
-Describe: Pizza()
+Describe: Order
+Test-1: "It will create an object to serve as a blueprint for creating order instance"
+Expect(Order("pizzas")).Equal(Order {pizzas: [0, 1, 2, 3]})
+
+Describe: Pizza
 Test-1: "It will create an object to serve as a blueprint for creating pizza instances"
-Expect (Pizza("toppings","size")).toEqual(Pizza {toppings: "toppings", size: "size");
+Expect(Pizza("toppings","size")).toEqual(Pizza {toppings: "toppings", size: "size");
 
 Test-2: It will create a prototype to be called on Pizza objects to add determine the price"
-Expect: (pizza.price).toEqual(Pizza {price: 13.00};)
+Expect(pizza.price).toEqual(Pizza {price: 13.00};)
 
 ## Known Bugs
 
