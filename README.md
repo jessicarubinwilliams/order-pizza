@@ -68,6 +68,9 @@ Expect(order.assignId).toEqual(Order {currentOrderId: 25})
 Test-4: "It will update a prototype to be called on Order objects to assign order ids to each pizza before the pizza object is added to the order object"
 Expect(order.addPizza).toEqual(Order {pizzas: pizza [id: 1], pizza [id: 2], pizza [id: 3]})
 
+Test-5: "It will create a prototype to be called on Order objects to find pizzas by ids"
+Expect(order.findPizza(1)).toEqual(Pizza {toppings: "toppings", customerName: "customerName"})
+
 Describe: Pizza
 Test-1: "It will create an object to serve as a blueprint for creating pizza instances"
 Expect(Pizza("toppings","size")).toEqual(Pizza {toppings: "toppings", size: "size");
