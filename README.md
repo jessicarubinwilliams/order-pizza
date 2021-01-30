@@ -57,10 +57,16 @@ _Alternatively,_
 
 Describe: Order
 Test-1: "It will create an object to serve as a blueprint for creating order instance"
-Expect(Order("pizzas")).toEqual(Order {pizzas: []})
+Expect(let order = new Order();).toEqual(Order {pizzas: []})
 
 Test-2: "It will create a prototype to be called on Order objects to add pizza objects to order objects"
-Expect(order.addPizza).toEqual(Order {pizzas: [0, 1, 2]})
+Expect(order.addPizza).toEqual(Order {pizzas: pizza[], pizza[], pizza[]})
+
+Test-3: "It will create a prototype to be called on Order objects to keep track of the last assigned order id by incrementing the this.currentOrderId property by 1 and returning the updated value"
+Expect(order.assignId).toEqual(Order {currentOrderId: 25})
+
+Test-4: "It will update a prototype to be called on Order objects to assign order ids to each pizza before the pizza object is added to the order object"
+Expect(order.addPizza).toEqual(Order {pizzas: pizza [id: 1], pizza [id: 2], pizza [id: 3]})
 
 Describe: Pizza
 Test-1: "It will create an object to serve as a blueprint for creating pizza instances"
