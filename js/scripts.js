@@ -16,8 +16,7 @@ Order.prototype.assignId = function() {
 
 // Business Logic for Pizza -------
 
-function Pizza(toppings, size, customerName) {
-  this.toppings = toppings;
+function Pizza(size, customerName) {
   this.size = size;
   this.customerName = customerName;
 }
@@ -49,20 +48,25 @@ Pizza.prototype.price = function() {
 // }
 
 // User Interface Logic -------
+let order = new Order();
 
 $(document).ready(function() {
   $("form#orderForm").submit(function(event) {
     event.preventDefault();
-    $("input:checkbox[name=topping]:checked").each(function() { //pizza.toppings
-      const toppingSelection = $(this).val(); //this refers to the specific selector being iterated over
-      $("div#confirmation").append(toppingSelection + "<br>");
-    });
-    const sizeSelection = $("#size").val(); //pizza.size
-    $("#pizzaSize").text(sizeSelection);
+    const sizeSelection = $("#size").val();
     const orderName = $("input#customerName").val();
-    $("span#orderName").text(orderName);
-    const totalDue = ("6") //change value once Business Logic is developed
-    $("#price").append(totalDue);
+    let pizza = new Pizza (sizeSelection, orderName);
+    order.addPizza(pizza);
+    console.log(order.pizzas);
+    // $("input:checkbox[name=topping]:checked").each(function() { //pizza.toppings
+    //   const toppingSelection = $(this).val(); //this refers to the specific selector being iterated over
+    //   $("div#confirmation").append(toppingSelection + "<br>");
+    // });
+
+    // const totalDue = ("6") //change value once Business Logic is developed
+    // $("#price").append(totalDue);
+
+
     $("div#order-confirmation").show();
     $("form#orderForm").hide();
   });
