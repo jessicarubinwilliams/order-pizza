@@ -14,7 +14,7 @@ Order.prototype.assignId = function() {
   return this.currentOrderId;
 }
 
-Order.prototype.findContact = function(id) {
+Order.prototype.findPizza = function(id) {
   if (this.pizzas[id] != undefined) {
     return this.contacts[id];
   }
@@ -60,7 +60,7 @@ function displayOrderDetails(orderToDisplay) {
   let orderConfirmation = $("div#order-confirmation");
   let htmlForOrderConfirmation = "";
   Object.keys(OrderToDisplay.pizzas).forEach(function(key) {
-    const pizza = OrderToDisplay.findContact(key);
+    const pizza = OrderToDisplay.findPizza(key);
     htmlForOrderConfirmation += "<p><span id=" + pizza.customerName + "></span>, your <span class=font-weight-bold' id=" + pizza.size + "></span> pizza with the following toppings will be ready shortly:</p>";
   });
   orderConfirmation.htm(htmlForOrderConfirmation);
