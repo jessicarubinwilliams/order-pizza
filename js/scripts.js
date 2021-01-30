@@ -4,6 +4,8 @@ function Pizza(toppings, size, price) {
   this.toppings = toppings;
   this.size = size;
   this.price = price;
+  this.orderId = orderId;
+  this.customerName = customerName;
 }
 
 Pizza.prototype.price = function() {
@@ -25,8 +27,12 @@ Pizza.prototype.price = function() {
     this.price += 6.00;
   } if (this.size === "extra large") {
     this.price += 9.00;
-  }
+  } return this.price //Move this functionality to UIL?
 };
+
+Pizza.prototype.addToppings = function() {
+  this.toppings
+}
 
 // User Interface Logic
 
@@ -39,7 +45,9 @@ $(document).ready(function() {
     });
     const sizeSelection = $("#size").val(); //pizza.size
     $("#pizzaSize").text(sizeSelection);
-    const totalDue = ("6") //change value one Business Logic is developed
+    const orderName = $("input#customerName").val();
+    $("span#orderName").text(orderName);
+    const totalDue = ("6") //change value once Business Logic is developed
     $("#price").append(totalDue);
     $("div#output").show();
     $("form#orderForm").hide();

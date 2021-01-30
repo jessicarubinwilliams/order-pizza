@@ -33,11 +33,16 @@
           <option value="extra large">Extra Large</option>
         </select>
       </div>
+      <div class="form-group">
+        <h3>Enter your name</h3>
+        <label for="customerName"></label>
+        <input type="text" class="form-control" id="customerName">
+      </div>
       <button type="submit" class="btn btn-danger">Place Your Order</button>
     </form>
     <div id="output">
       <div id="confirmation">
-        <p>Your <span class="font-weight-bold" id="pizzaSize"></span> pizza with the following toppings will be on its way shortly:</p>
+        <p><span id="orderName"></span>, your <span class="font-weight-bold" id="pizzaSize"></span> pizza with the following toppings will be on its way shortly:</p>
       </div>
       <br>
       <p>Your total due is: $<span id="price"></span></p> 
