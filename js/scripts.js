@@ -4,7 +4,7 @@ function Order() {
   this.pizzas = {};
 }
 
-AddressBook.prototype.addPizza = function(contact) {
+Order.prototype.addPizza = function(contact) {
   this.pizzas[pizza.customerName] = pizza;
 }
 
