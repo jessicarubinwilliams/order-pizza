@@ -6,7 +6,7 @@ function Order() {
 }
 
 Order.prototype.addPizza = function(pizza) {
-  pizza.id = this.assignId();
+  pizza.orderId = this.assignId();
   this.pizzas[pizza.orderId] = pizza;
 }
 
@@ -15,7 +15,7 @@ Order.prototype.assignId = function() {
   return this.currentOrderId;
 }
 
-Order.prototype.findPizza = function(id) {
+Order.prototype.findPizza = function(orderId) {
   if (this.pizzas[orderId] != undefined) {
     return this.pizzas[orderId];
   }
@@ -24,12 +24,19 @@ Order.prototype.findPizza = function(id) {
 
 // Business Logic for Pizza -------
 
-function Pizza(size, customerName) {
+function Pizza(toppings, size, customerName) {
+  this.toppings = [toppings];
   this.size = size;
   this.customerName = customerName;
 }
 
+Pizza.prototype.listToppings = function([toppings]) {
+  this.toppings=toppings.join(", ");
+  return this.toppings;
+}
+
 Pizza.prototype.price = function() {
+  this.price = 13.00;
   if (this.toppings === "Spinach") {
     this.price += 1.00;
   } if (this.toppings === "Tomato") {
@@ -51,24 +58,16 @@ Pizza.prototype.price = function() {
   } return this.price //Move this functionality to UIL?
 };
 
-// Pizza.prototype.addToppings = function(pizza) {
-//   this.toppings[pizza.orderId] = pizza;
-// }
-
-// function orderAPizza([toppings], size, name) {
-
-// }
-
 // User Interface Logic -------
 let order = new Order();
 function displayOrderDetails(orderToDisplay) {
   let orderConfirmation = $("div#order-confirmation");
   let htmlForOrderConfirmation = "";
-  Object.keys(OrderToDisplay.pizzas).forEach(function(key) {
-    const pizza = OrderToDisplay.findPizza(key);
-    htmlForOrderConfirmation += "<p><span id=" + pizza.customerName + "></span>, your <span class=font-weight-bold' id=" + pizza.size + "></span> pizza with the following toppings will be ready shortly:</p>";
+  Object.keys(orderToDisplay.pizzas).forEach(function(key) {
+    const pizza = orderToDisplay.findPizza(key);
+    htmlForOrderConfirmation += "<p id=" + pizza.id + ">" + pizza.customerName + " " + pizza.size + " " + pizza.toppings + " " + pizza.price + "</p>";
   });
-  orderConfirmation.htm(htmlForOrderConfirmation);
+  orderConfirmation.html(htmlForOrderConfirmation);
 };
 
 
@@ -76,20 +75,16 @@ function displayOrderDetails(orderToDisplay) {
 $(document).ready(function() {
   $("form#orderForm").submit(function(event) {
     event.preventDefault();
+    let toppingSelection = [];
+    $("input:checkbox[name=topping]:checked").each(function() { //pizza.toppings
+      return toppingSelection = $(this).val(); //this refers to the specific selector being iterated over
+    });
     const sizeSelection = $("#size").val();
     const orderName = $("input#customerName").val();
-    let newPizza = new Pizza (sizeSelection, orderName);
+    let newPizza = new Pizza (toppingSelection, sizeSelection, orderName);
+    newPizza.price();
     order.addPizza(newPizza);
     displayOrderDetails(order);
-    // $("input:checkbox[name=topping]:checked").each(function() { //pizza.toppings
-    //   const toppingSelection = $(this).val(); //this refers to the specific selector being iterated over
-    //   $("div#confirmation").append(toppingSelection + "<br>");
-    // });
-
-    // const totalDue = ("6") //change value once Business Logic is developed
-    // $("#price").append(totalDue);
-
-
     $("div#order-confirmation").show();
     $("form#orderForm").hide();
   });
