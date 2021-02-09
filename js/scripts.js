@@ -6,7 +6,8 @@ function Order() {
 }
 
 Order.prototype.addPizza = function(pizza) {
-  this.pizzas[pizza.OrderId] = pizza;
+  pizza.id = this.assignId();
+  this.pizzas[pizza.orderId] = pizza;
 }
 
 Order.prototype.assignId = function() {
@@ -15,8 +16,8 @@ Order.prototype.assignId = function() {
 }
 
 Order.prototype.findPizza = function(id) {
-  if (this.pizzas[id] != undefined) {
-    return this.contacts[id];
+  if (this.pizzas[orderId] != undefined) {
+    return this.pizzas[orderId];
   }
   return false;
 }
@@ -51,7 +52,11 @@ Pizza.prototype.price = function() {
 };
 
 // Pizza.prototype.addToppings = function(pizza) {
-//   this.toppings[pizza.customerName] = pizza;
+//   this.toppings[pizza.orderId] = pizza;
+// }
+
+// function orderAPizza([toppings], size, name) {
+
 // }
 
 // User Interface Logic -------
