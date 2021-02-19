@@ -25,9 +25,10 @@ Order.prototype.findPizza = function(orderId) {
 // Business Logic for Pizza -------
 
 function Pizza(toppings, size, customerName) {
-  this.toppings = [toppings];
+  this.toppings = toppings;
   this.size = size;
   this.customerName = customerName;
+  this.price = 13.00;
 }
 
 Pizza.prototype.listToppings = function([toppings]) {
@@ -35,28 +36,36 @@ Pizza.prototype.listToppings = function([toppings]) {
   return this.toppings;
 }
 
-Pizza.prototype.price = function() {
-  this.price = 13.00;
-  if (this.toppings === "Spinach") {
-    this.price += 1.00;
-  } if (this.toppings === "Tomato") {
-    this.price += 1.00;
-  } if (this.toppings === "Green Pepper") {
-    this.price += 1.00;
-  } if (this.toppings === "Caramelized Onions") {
-    this.price += 2.00;
-  } if (this.toppings === "Feta") {
-    this.price += 2.50;
-  } if (this.price === "Smoked Mozzarella") {
-    this.price += 3.00;
-  } if (this.size === "medium") {
-    this.price += 3.00;
-  } if (this.size === "large") {
-    this.price += 6.00;
-  } if (this.size === "extra large") {
-    this.price += 9.00;
-  } return this.price //Move this functionality to UIL?
-};
+Pizza.prototype.calculatePrice = function() {
+  const that = this//this represents the pizza instance. That variable makes the pizza instance available inside the scope of the function below. Question: if the outer function has access to this and the inner function has access to the scope of the outer function, why doesn't the inner function have access to this. Why can the inner function "inherit" that but not this?
+  that.toppings.forEach(function(topping) {
+    console.log(that.toppings); // works. function has access to that
+    if (topping == "Spinach") {
+      console.log("Loosely Spinach"); //works, 
+      return that.price += 1.00; //works
+    }
+    // if (topping === "Spinach") {
+    //   console.log("Exactly Spinach") //doesn't work. Why? "Spinach" is the only element in the toppings array in this test. How come only loose equality works here?
+    // }
+  });
+  console.log(that.price);
+  console.log(this.price) //How does JavaScript know that this is the same as that? I only told it that was the same as this, not the reverse?
+}
+  
+//   if (this.toppings === "Caramelized Onions") {
+//     this.price += 2.00;
+//   } if (this.toppings === "Feta") {
+//     this.price += 2.50;
+//   } if (this.price === "Smoked Mozzarella") 
+//     this.price += 3.00;
+//   } if (this.size === "medium") {
+//     this.price += 3.00;
+//   } if (this.size === "large") {
+//     this.price += 6.00;
+//   } if (this.size === "extra large") {
+//     this.price += 9.00;
+//   } return this.price //Move this functionality to UIL?
+// };
 
 // User Interface Logic -------
 let order = new Order();
@@ -70,19 +79,18 @@ function displayOrderDetails(orderToDisplay) {
   orderConfirmation.html(htmlForOrderConfirmation);
 };
 
-
-
 $(document).ready(function() {
   $("form#orderForm").submit(function(event) {
     event.preventDefault();
     let toppingSelection = [];
     $("input:checkbox[name=topping]:checked").each(function() { //pizza.toppings
-      return toppingSelection = $(this).val(); //this refers to the specific selector being iterated over
+      return toppingSelection.push($(this).val()); //this refers to the specific selector being iterated over
     });
     const sizeSelection = $("#size").val();
     const orderName = $("input#customerName").val();
     let newPizza = new Pizza (toppingSelection, sizeSelection, orderName);
-    newPizza.price();
+    newPizza.calculatePrice();
+    console.log(newPizza);
     order.addPizza(newPizza);
     displayOrderDetails(order);
     $("div#order-confirmation").show();
