@@ -37,19 +37,15 @@ Pizza.prototype.listToppings = function([toppings]) {
 }
 
 Pizza.prototype.calculatePrice = function() {
-  const that = this//this represents the pizza instance when it is returned outside the function but does it represent anything here inside the function? Does that even mean anything until this prototype is called inside the submit function?
-  that.toppings.forEach(function(topping) {
+  this.toppings.forEach(topping => {
     if (topping === "Spinach" || topping === "Tomato" || topping === "Green Pepper") {
-      that.price += 1.00;
-      // if (topping === "Spinach") {
-      //   console.log("Exactly Spinach") //doesn't work. Why? "Spinach" is the only element in the toppings array in this test. How come only loose equality works here?
-      // }
+      this.price += 1.00;
     } if (topping === "Caramelized Onions") {
-      that.price += 2.00;
+      this.price += 2.00;
     } if (topping === "Feta") {
-      that.price += 2.50;
+      this.price += 2.50;
     } if (topping === "Smoked Mozzarella") {
-      that.price += 3.00;
+      this.price += 3.00;
     }
   });
   if (this.size === "medium") {
