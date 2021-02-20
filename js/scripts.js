@@ -39,33 +39,28 @@ Pizza.prototype.listToppings = function([toppings]) {
 Pizza.prototype.calculatePrice = function() {
   const that = this//this represents the pizza instance when it is returned outside the function but does it represent anything here inside the function? Does that even mean anything until this prototype is called inside the submit function?
   that.toppings.forEach(function(topping) {
-    console.log(that.toppings); // works. function has access to that
-    if (topping == "Spinach") {
-      console.log("Loosely Spinach"); //works, 
-      return that.price += 1.00; //works
+    if (topping === "Spinach" || topping === "Tomato" || topping === "Green Pepper") {
+      that.price += 1.00;
+      // if (topping === "Spinach") {
+      //   console.log("Exactly Spinach") //doesn't work. Why? "Spinach" is the only element in the toppings array in this test. How come only loose equality works here?
+      // }
+    } if (topping === "Caramelized Onions") {
+      that.price += 2.00;
+    } if (topping === "Feta") {
+      that.price += 2.50;
+    } if (topping === "Smoked Mozzarella") {
+      that.price += 3.00;
     }
-    // if (topping === "Spinach") {
-    //   console.log("Exactly Spinach") //doesn't work. Why? "Spinach" is the only element in the toppings array in this test. How come only loose equality works here?
-    // }
   });
-  console.log(that.price);
-  console.log(this.price) //How does JavaScript know that this is the same as that? I only told it that was the same as this, not the reverse?
+  if (this.size === "medium") {
+    this.price *= 1.25;
+  } if (this.size === "large") {
+    this.price *= 1.5;
+  } if (this.size === "extra large") {
+    this.price *= 1.75
+  }
+  this.price = this.price.toFixed(2);
 }
-  
-//   if (this.toppings === "Caramelized Onions") {
-//     this.price += 2.00;
-//   } if (this.toppings === "Feta") {
-//     this.price += 2.50;
-//   } if (this.price === "Smoked Mozzarella") 
-//     this.price += 3.00;
-//   } if (this.size === "medium") {
-//     this.price += 3.00;
-//   } if (this.size === "large") {
-//     this.price += 6.00;
-//   } if (this.size === "extra large") {
-//     this.price += 9.00;
-//   } return this.price //Move this functionality to UIL?
-// };
 
 // User Interface Logic -------
 let order = new Order();
