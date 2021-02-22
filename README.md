@@ -51,7 +51,7 @@ _Further Exploration Option:_
 
 _Alternatively,_
 
-* _Direct your browser to a [live version on GitHub Pages.] (jessicarubinwilliams.github.io/island-resort-webpage/index.html)_
+* _Direct your browser to a [live version on GitHub Pages.](https://jessicarubinwilliams.github.io/order-pizza/index.html)_
 
 ## Tests
 
