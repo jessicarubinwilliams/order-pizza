@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-US">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,44 +10,29 @@
   <script src="js/scripts.js"></script>
   <title>Order Pizza</title>
 </head>
+
 <body>
   <div class="container">
     <div class="jumbotron">
       <h1>Order A Pizza</h1>
     </div>
     <form id="orderForm">
-      <div class="form-group">
-        <h3>Select your pizza toppings</h3>
-        <input type="checkbox" name="topping" value="Spinach">Spinach<br>
-        <input type="checkbox" name="topping" value="Tomato">Tomato<br>
-        <input type="checkbox" name="topping" value="Green Pepper">Green Pepper<br>
-        <input type="checkbox" name="topping" value="Caramelized Onions">Caramelized Onions<br>
-        <input type="checkbox" name="topping" value="Feta">Feta<br>
-        <input type="checkbox" name="topping" value="Smoked Mozzarella">Smoked Mozzarella<br>
+      <div id="personalize-pizza">
+
       </div>
-      <div class="form-group">
-        <h3>Select your pizza size</h3>
-        <select class="form-control" id="size">
-          <option value="small">Small</option>
-          <option value="medium">Medium</option>
-          <option value="large">Large</option>
-          <option value="extra large">Extra Large</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <h3>Enter your name</h3>
-        <label for="customerName"></label>
-        <input type="text" class="form-control" id="customerName">
-      </div>
+      <h3>Enter your name</h3>
+      <label for="customerName"></label>
+      <input type="text" class="form-control" id="customerName">
       <button type="submit" class="btn btn-danger">Place Your Order</button>
     </form>
     <div id="order-confirmation">
       <div id="confirmation">
-        
+
       </div>
       <br>
-      <p>Your total due is: $<span id="amountDue"></span></p> 
+      <p>Your total due is: $<span id="amountDue"></span></p>
     </div>
   </div>
 </body>
+
 </html>
