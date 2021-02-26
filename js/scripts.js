@@ -57,6 +57,11 @@ Pizza.prototype.calculatePrice = function() {
   this.price = this.price.toFixed(2);
 }
 
+Order.prototype.addNumberOfPizzas = function(numberString) {
+  const number = parseInt(numberString);
+  this.numberOfPizzas = number;
+};
+
 // User Interface Logic -------
 let order = new Order(); // global as simulating a database
 
