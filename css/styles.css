@@ -1,3 +1,4 @@
-#order-confirmation {
+#order-confirmation,
+#orderForm {
   display: none;
 }
