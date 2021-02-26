@@ -59,7 +59,35 @@ Pizza.prototype.calculatePrice = function() {
 }
 
 // User Interface Logic -------
-let order = new Order();
+let order = new Order(); // global as simulating a database
+
+function displayOrderForm(numberOfPizzas) {
+  let personalizePizzaDiv = $("#personalize-pizza");
+  let htmlForPersonalizePizzaDiv = "";
+  for (let instance = 1; instance <= numberOfPizzas; instance += 1) {
+    htmlForPersonalizePizzaDiv += `<h3 class='text-center mt-5'>Customize Pizza ` + instance + `</h3>
+    <div class="form-group">
+    <h5>Select pizza ` + instance + ` toppings</h5>
+    <input type="checkbox" name="topping" value="Spinach">Spinach<br>
+    <input type="checkbox" name="topping" value="Tomato">Tomato<br>
+    <input type="checkbox" name="topping" value="Green Pepper">Green Pepper<br>
+    <input type="checkbox" name="topping" value="Caramelized Onions">Caramelized Onions<br>
+    <input type="checkbox" name="topping" value="Feta">Feta<br>
+    <input type="checkbox" name="topping" value="Smoked Mozzarella">Smoked Mozzarella<br>
+  </div>
+  <div class="form-group">
+    <h5>Select pizza ` + instance + ` size</h5>
+    <select class="form-control" id="size">
+      <option value="small">Small</option>
+      <option value="medium">Medium</option>
+      <option value="large">Large</option>
+      <option value="extra large">Extra Large</option>
+    </select>
+  </div>`
+  };
+  personalizePizzaDiv.html(htmlForPersonalizePizzaDiv);
+}
+
 function displayOrderDetails(orderToDisplay) {
   let orderConfirmation = $("div#order-confirmation");
   let htmlForOrderConfirmation = "";
@@ -71,6 +99,13 @@ function displayOrderDetails(orderToDisplay) {
 };
 
 $(document).ready(function() {
+  $("form#number-pizzas-form").submit(function(event) {
+    event.preventDefault();
+    const numberOfPizzas = $("#number-pizzas").val();
+    displayOrderForm(numberOfPizzas);
+    $("#number-of-pizzas").hide()
+    $("#orderForm").show();
+  });
   $("form#orderForm").submit(function(event) {
     event.preventDefault();
     let toppingSelection = [];
