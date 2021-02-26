@@ -59,6 +59,10 @@ Describe: Order()
 Test: "It will create Order instances with properties pizzas and currentOrderId"
 Expect(let order = new Order()).toEqual(Order { pizzas: {}, currentOrderId: 0})
 
+Describe: Order.prototype.addNumberOfPizzas(numberString)
+Test: "It will take a string as an argument, parse the string into a number, and add a property with the key "numberOfPizzas" and the value of the parsed argument"
+Expect(order.addNumberOfPizzas("1")).toEqual(Order { pizzas: {}, currentOrderId: 0, numberOfPizzas: 1})
+
 Describe: Order.prototype.assignId()
 Test: "It will increment the currentId property and return the newly incremented value"
 Expect(order.assignId).toEqual(Order { pizzas: {}, currentOrderId: 1})
@@ -78,7 +82,6 @@ Expect(let pizza1 = new Pizza(["Green Peppers", "Caramelized Onions", "Feta"], "
 Describe: Pizza.prototype.calculatePrice
 Test: It will use branching logic to assess the values of the size and toppings properties, calculate the price of the pizza and update the price property with the result of the calculation"
 Expect(pizza.price).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 })
-
 
 Describe: Pizza.prototype.listToppings()
 Test: "It will return the toppings property's array value as a formatted string"
