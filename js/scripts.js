@@ -5,14 +5,14 @@ function Order() {
   this.currentOrderId = 0
 }
 
-Order.prototype.addPizza = function(pizza) {
-  pizza.orderId = this.assignId();
-  this.pizzas[pizza.orderId] = pizza;
-}
-
 Order.prototype.assignId = function() {
   this.currentOrderId += 1;
   return this.currentOrderId;
+}
+
+Order.prototype.addPizza = function(pizza) {
+  pizza.orderId = this.assignId();
+  this.pizzas[pizza.orderId] = pizza;
 }
 
 Order.prototype.findPizza = function(orderId) {
