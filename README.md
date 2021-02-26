@@ -78,6 +78,11 @@ Expect(let pizza1 = new Pizza(["Green Peppers", "Caramelized Onions", "Feta"], "
 Describe: Pizza.prototype.calculatePrice
 Test: It will use branching logic to assess the values of the size and toppings properties, calculate the price of the pizza and update the price property with the result of the calculation"
 Expect(pizza.price).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 })
+
+
+Describe: Pizza.prototype.listToppings()
+Test: "It will return the toppings property's array value as a formatted string"
+Expect(pizza1.listToppings()).toEqual("Green Peppers, Caramelized Onions, Feta")
 `
 
 ## Known Bugs
