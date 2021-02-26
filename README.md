@@ -54,29 +54,31 @@ _Alternatively,_
 * _Direct your browser to a [live version on GitHub Pages.](https://jessicarubinwilliams.github.io/order-pizza/index.html)_
 
 ## Tests
+`
+Describe: Order()
+Test: "It will create Order instances with properties pizzas and currentOrderId"
+Expect(let order = new Order()).toEqual(Order { pizzas: {}, currentOrderId: 0})
 
-Describe: Order
-Test-1: "It will create an object to serve as a blueprint for creating order instance"
-Expect(let order = new Order();).toEqual(Order {pizzas: []})
+Describe: Order.prototype.assignId()
+Test: "It will increment the currentId property and return the newly incremented value"
+Expect(order.assignId).toEqual(Order { pizzas: {}, currentOrderId: 1})
 
-Test-2: "It will create a prototype to be called on Order objects to add pizza objects to order objects"
-Expect(order.addPizza).toEqual(Order {pizzas: pizza[], pizza[], pizza[]})
+Describe: Order.prototype.addPizza(pizza)
+Test: "It will take a Pizza instance as an argument, call the assignID method, assign an id value to the Pizza instance, and add the Pizza instance to the Order's pizzas property"
+Expect(order.addPizza(pizza1)).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 }}, currentOrderId: 1})
 
-Test-3: "It will create a prototype to be called on Order objects to keep track of the last assigned order id by incrementing the this.currentOrderId property by 1 and returning the updated value"
-Expect(order.assignId).toEqual(Order {currentOrderId: 25})
+Describe: Order.prototype.findPizza(id)
+Test-5: "It will take a pizza's id as an argument and return the Pizza instance with that id. If no pizza has that id it will return false"
+Expect(order.findPizza(1)).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 })
 
-Test-4: "It will update a prototype to be called on Order objects to assign order ids to each pizza before the pizza object is added to the order object"
-Expect(order.addPizza).toEqual(Order {pizzas: pizza [id: 1], pizza [id: 2], pizza [id: 3]})
+Describe: Pizza(toppings, size, customerName)
+Test: "It will take three arguments and create Pizza instances with toppings, size, customerName, and price properties. It will assign the arguments as values to the keys toppings, size, and customerName respectively. The value of the key price will be 13.00"
+Expect(let pizza1 = new Pizza(["Green Peppers", "Caramelized Onions", "Feta"], "medium", "Jamie")).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 13.00 })
 
-Test-5: "It will create a prototype to be called on Order objects to find pizzas by ids"
-Expect(order.findPizza(1)).toEqual(Pizza {toppings: "toppings", customerName: "customerName"})
-
-Describe: Pizza
-Test-1: "It will create an object to serve as a blueprint for creating pizza instances"
-Expect(Pizza("toppings","size")).toEqual(Pizza {toppings: "toppings", size: "size");
-
-Test-2: It will create a prototype to be called on Pizza objects to determine the price"
-Expect(pizza.price).toEqual(Pizza {price: 13.00};)
+Describe: Pizza.prototype.calculatePrice
+Test: It will use branching logic to assess the values of the size and toppings properties, calculate the price of the pizza and update the price property with the result of the calculation"
+Expect(pizza.price).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 })
+`
 
 ## Known Bugs
 
