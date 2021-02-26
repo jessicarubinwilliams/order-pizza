@@ -14,7 +14,18 @@
 <body>
   <div class="container">
     <div class="jumbotron">
-      <h1>Order A Pizza</h1>
+      <h1 class="text-center">Order Pizza</h1>
+    </div>
+    <div id="number-of-pizzas">
+      <h2 class="mb-4 text-center">Welcome to This Pizza Shop's Online Ordering</h2>
+      <h4>Start your order</h4>
+      <form id="number-pizzas-form">
+        <div class="form-group">
+          <label for="number-pizzas">Number of pizzas in this order:</label>
+          <input type="number" class="form-control mb-2" id="number-pizzas" placeholder="Enter number">
+        </div>
+        <button type="submit" class="btn btn-danger">Start Your Order</button>
+      </form>
     </div>
     <form id="orderForm">
       <div id="personalize-pizza">
@@ -23,7 +34,7 @@
       <h3>Enter your name</h3>
       <label for="customerName"></label>
       <input type="text" class="form-control" id="customerName">
-      <button type="submit" class="btn btn-danger">Place Your Order</button>
+      <button type="submit" class="btn btn-danger mt-3 mb-5">Place Your Order</button>
     </form>
     <div id="order-confirmation">
       <div id="confirmation">
