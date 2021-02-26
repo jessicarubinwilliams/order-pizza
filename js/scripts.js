@@ -78,6 +78,7 @@ function displayOrderForm(numberOfPizzas) {
   <div class="form-group">
     <h5>Select pizza ` + instance + ` size</h5>
     <select class="form-control" id="size">
+      <option selected>Choose size...</option>
       <option value="small">Small</option>
       <option value="medium">Medium</option>
       <option value="large">Large</option>
