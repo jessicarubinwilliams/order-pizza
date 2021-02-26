@@ -110,14 +110,13 @@ $(document).ready(function() {
   $("form#orderForm").submit(function(event) {
     event.preventDefault();
     let toppingSelection = [];
-    $("input:checkbox[name=topping]:checked").each(function() { //pizza.toppings
-      return toppingSelection.push($(this).val()); //this refers to the specific selector being iterated over
+    $("input:checkbox[name=topping]:checked").each(function() {
+      return toppingSelection.push($(this).val());
     });
     const sizeSelection = $("#size").val();
     const orderName = $("input#customerName").val();
     let newPizza = new Pizza (toppingSelection, sizeSelection, orderName);
     newPizza.calculatePrice();
-    console.log(newPizza);
     order.addPizza(newPizza);
     displayOrderDetails(order);
     $("div#order-confirmation").show();
