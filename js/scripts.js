@@ -115,23 +115,22 @@ $(document).ready(function() {
   $("form#orderForm").submit(function(event) {
     event.preventDefault();
     for (let instance = 1; instance <= order.numberOfPizzas; instance += 1) {
-      console.log("testing");
-      // let toppingSelection = [];
-      // $("input:checkbox[name=topping" + instance + "]:checked").each(function() {
-      //   console.log("eureka");
-      //   return toppingSelection.push($(this).val());
-      // });
-      // console.log(toppingSelection);
-      // const sizeSelection = $("#size' + instance + '").val();
-      // console.log(sizeSelection);
-      // const orderName = $("input#customerName").val();
-      // console.log(orderName);
-      // let newPizza = new Pizza (toppingSelection, sizeSelection, orderName);
-      // console.log(newPizza);
-      // newPizza.calculatePrice();
-      // console.log(newPizza);
-      // order.addPizza(newPizza);
-      // displayOrderDetails(order);
+      let toppingSelection = [];
+      $("input:checkbox[name=topping" + instance + "]:checked").each(function() {
+        console.log("eureka");
+        return toppingSelection.push($(this).val());
+      });
+      console.log(toppingSelection);
+      const sizeSelection = $("#size" + instance + "").val();
+      console.log(sizeSelection);
+      const orderName = $("input#customerName").val();
+      console.log(orderName);
+      let newPizza = new Pizza (toppingSelection, sizeSelection, orderName);
+      console.log(newPizza);
+      newPizza.calculatePrice();
+      console.log(newPizza);
+      order.addPizza(newPizza);
+      displayOrderDetails(order);
     }
     $("div#order-confirmation").show();
     $("form#orderForm").hide();
