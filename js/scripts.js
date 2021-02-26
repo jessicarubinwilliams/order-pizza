@@ -2,22 +2,22 @@
 
 function Order() {
   this.pizzas = {};
-  this.currentOrderId = 0
+  this.currentPizzaId = 0
 }
 
 Order.prototype.assignId = function() {
-  this.currentOrderId += 1;
-  return this.currentOrderId;
+  this.currentPizzaId += 1;
+  return this.currentPizzaId;
 }
 
 Order.prototype.addPizza = function(pizza) {
-  pizza.orderId = this.assignId();
-  this.pizzas[pizza.orderId] = pizza;
+  pizza.id = this.assignId();
+  this.pizzas[pizza.id] = pizza;
 }
 
-Order.prototype.findPizza = function(orderId) {
-  if (this.pizzas[orderId] != undefined) {
-    return this.pizzas[orderId];
+Order.prototype.findPizza = function(id) {
+  if (this.pizzas[id] != undefined) {
+    return this.pizzas[id];
   }
   return false;
 }
