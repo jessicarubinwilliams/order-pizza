@@ -31,9 +31,8 @@ function Pizza(toppings, size, customerName) {
   this.price = 13.00;
 }
 
-Pizza.prototype.listToppings = function([toppings]) {
-  this.toppings=toppings.join(", ");
-  return this.toppings;
+Pizza.prototype.listToppings = function() {
+  return this.toppings.join(", ");
 }
 
 Pizza.prototype.calculatePrice = function() {
