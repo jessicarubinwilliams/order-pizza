@@ -71,13 +71,14 @@ function displayOrderForm(numberOfPizzas) {
   for (let instance = 1; instance <= numberOfPizzas; instance += 1) {
     htmlForPersonalizePizzaDiv += `<h3 class='text-center mt-5'>Customize Pizza ` + instance + `</h3>
     <div class="form-group">
-    <h5>Select pizza ` + instance + ` toppings</h5>
+    <h5>Select pizza ` + instance + ` toppings (as many as you'd like)</h5>
     <input type="checkbox" name="topping`+ instance +`" value="Spinach">Spinach<br>
     <input type="checkbox" name="topping`+ instance +`" value="Tomato">Tomato<br>
     <input type="checkbox" name="topping`+ instance +`" value="Green Pepper">Green Pepper<br>
     <input type="checkbox" name="topping`+ instance +`" value="Caramelized Onions">Caramelized Onions<br>
     <input type="checkbox" name="topping`+ instance +`" value="Feta">Feta<br>
     <input type="checkbox" name="topping`+ instance +`" value="Smoked Mozzarella">Smoked Mozzarella<br>
+    <input type="checkbox" name="topping`+ instance +`" value="No Toppings">No Toppings<br>
   </div>
   <div class="form-group">
     <h5>Select pizza ` + instance + ` size</h5>
