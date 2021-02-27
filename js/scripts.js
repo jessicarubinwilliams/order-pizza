@@ -15,6 +15,10 @@ Order.prototype.addPizza = function(pizza) {
   this.pizzas[pizza.id] = pizza;
 }
 
+Order.prototype.addTotalDue = function(pizzaPrice) {
+  this.TotalDue += pizzaPrice;
+}
+
 Order.prototype.findPizza = function(id) {
   if (this.pizzas[id] != undefined) {
     return this.pizzas[id];
