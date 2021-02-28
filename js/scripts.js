@@ -20,6 +20,10 @@ Order.prototype.addPizza = function(pizza) {
   this.pizzas[pizza.id] = pizza;
 }
 
+Order.prototype.addName = function(customerName) {
+  this.customerName = customerName;
+}
+
 Order.prototype.addTotalDue = function(pizzaPrice) {
   this.totalDue += pizzaPrice;
 }
@@ -33,10 +37,9 @@ Order.prototype.findPizza = function(id) {
 
 // Business Logic for Pizza -------
 
-function Pizza(toppings, size, customerName) {
+function Pizza(toppings, size) {
   this.toppings = toppings;
   this.size = size;
-  this.customerName = customerName;
   this.price = 13.00;
 }
 
