@@ -69,23 +69,27 @@ Expect(order.assignId).toEqual(Order { pizzas: {}, currentOrderId: 1, totalDue: 
 
 Describe: Order.prototype.addPizza(pizza)
 Test: "It will take a Pizza instance as an argument, call the assignID method, assign an id value to the Pizza instance, and add the Pizza instance to the Order's pizzas property"
-Expect(order.addPizza(pizza1)).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 }}, currentOrderId: 1, totalDue: 0, numberOfPizzas: 1 })
+Expect(order.addPizza(pizza1)).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", price: 23.13 }}, currentOrderId: 1, totalDue: 0, numberOfPizzas: 1 })
+
+Describe: Order.prototype.addName(customerName)
+Test: "It will take a name as an argument, create a property with the key "customerName" and the value of the argument"
+Expect(order.addName("Jamie")).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", price: 23.13 }}, currentOrderId: 1, totalDue: 0, numberOfPizzas: 1, customerName: "Jamie" })
 
 Describe: Order.prototype.addTotalDue(pizzaPrice)
 Test: "It will take the price of a single pizza as an argument and add the value of the argument to the totalDue property"
-Expect(order.addTotalDue(this.pizzas(pizza1.price))).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 }}, currentOrderId: 1, totalDue: 23.13, numberOfPizzas: 1 })
+Expect(order.addTotalDue(this.pizzas(pizza1.price))).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", price: 23.13 }}, currentOrderId: 1, totalDue: 23.13, numberOfPizzas: 1, customerName: "Jamie" })
 
 Describe: Order.prototype.findPizza(id)
 Test-5: "It will take a pizza's id as an argument and return the Pizza instance with that id. If no pizza has that id it will return false"
-Expect(order.findPizza(1)).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 })
+Expect(order.findPizza(1)).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", price: 23.13 })
 
 Describe: Pizza(toppings, size, customerName)
 Test: "It will take three arguments and create Pizza instances with toppings, size, customerName, and price properties. It will assign the arguments as values to the keys toppings, size, and customerName respectively. The value of the key price will be 13.00"
-Expect(let pizza1 = new Pizza(["Green Peppers", "Caramelized Onions", "Feta"], "medium", "Jamie")).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 13.00 })
+Expect(let pizza1 = new Pizza(["Green Peppers", "Caramelized Onions", "Feta"], "medium", "Jamie")).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", price: 13.00 })
 
 Describe: Pizza.prototype.calculatePrice
 Test: It will use branching logic to assess the values of the size and toppings properties, calculate the price of the pizza and update the price property with the result of the calculation"
-Expect(pizza.price).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 })
+Expect(pizza.price).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", price: 23.13 })
 
 Describe: Pizza.prototype.listToppings()
 Test: "It will return the toppings property's array value as a formatted string"
