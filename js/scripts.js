@@ -9,6 +9,10 @@ Order.prototype.assignId = function() {
   this.currentPizzaId += 1;
   return this.currentPizzaId;
 }
+Order.prototype.addNumberOfPizzas = function(numberString) {
+  const number = parseInt(numberString);
+  this.numberOfPizzas = number;
+};
 
 Order.prototype.addPizza = function(pizza) {
   pizza.id = this.assignId();
@@ -61,11 +65,6 @@ Pizza.prototype.calculatePrice = function() {
   this.price = this.price.toFixed(2);
   this.price = parseFloat(this.price);
 }
-
-Order.prototype.addNumberOfPizzas = function(numberString) {
-  const number = parseInt(numberString);
-  this.numberOfPizzas = number;
-};
 
 // User Interface Logic -------
 let order = new Order(); // global as simulating a database
