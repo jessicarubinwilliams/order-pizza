@@ -102,10 +102,10 @@ function displayOrderForm(numberOfPizzas) {
 
 function displayOrderDetails(orderToDisplay) {
   let orderConfirmation = $("div#order-confirmation");
-  let htmlForOrderConfirmation = "";
+  let htmlForOrderConfirmation = "<h5 class='mb-3'> Thanks for your order " + order.customerName + ".</h5>";
   Object.keys(orderToDisplay.pizzas).forEach(function(key) {
     const pizza = orderToDisplay.findPizza(key);
-    htmlForOrderConfirmation += "<p id=" + pizza.id + ">" + pizza.customerName + ", the total for your " + pizza.size + " pizza with " + pizza.toppings.join(', ') + " is $" + pizza.price.toFixed(2) + ".</p>";
+    htmlForOrderConfirmation += "<p id=" + pizza.id + ">The total for your " + pizza.size + " pizza with " + pizza.toppings.join(', ') + " is $" + pizza.price.toFixed(2) + ".</p>";
   });
   htmlForOrderConfirmation += "<br><h5>Your order total is $" + order.totalDue.toFixed(2) + ".</h5>"
   orderConfirmation.html(htmlForOrderConfirmation);
@@ -129,9 +129,10 @@ $(document).ready(function() {
       });
       const sizeSelection = $("#size" + instance + "").val();
       const orderName = $("input#customerName").val();
-      let newPizza = new Pizza (toppingSelection, sizeSelection, orderName);
+      let newPizza = new Pizza (toppingSelection, sizeSelection);
       newPizza.calculatePrice();
       order.addTotalDue(newPizza.price);
+      order.addName(orderName);
       order.addPizza(newPizza);
       displayOrderDetails(order);
     }
