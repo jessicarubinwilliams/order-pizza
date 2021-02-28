@@ -3,6 +3,7 @@
 function Order() {
   this.pizzas = {};
   this.currentPizzaId = 0;
+  this.totalDue = 0;
 }
 
 Order.prototype.assignId = function() {
@@ -20,7 +21,7 @@ Order.prototype.addPizza = function(pizza) {
 }
 
 Order.prototype.addTotalDue = function(pizzaPrice) {
-  this.TotalDue += pizzaPrice;
+  this.totalDue += pizzaPrice;
 }
 
 Order.prototype.findPizza = function(id) {
@@ -126,6 +127,7 @@ $(document).ready(function() {
       const orderName = $("input#customerName").val();
       let newPizza = new Pizza (toppingSelection, sizeSelection, orderName);
       newPizza.calculatePrice();
+      order.addTotalDue(newPizza.price);
       order.addPizza(newPizza);
       displayOrderDetails(order);
     }
