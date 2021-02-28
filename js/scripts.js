@@ -62,8 +62,6 @@ Pizza.prototype.calculatePrice = function() {
   } if (this.size === "extra large") {
     this.price *= 1.75
   }
-  this.price = this.price.toFixed(2);
-  this.price = parseFloat(this.price);
 }
 
 // User Interface Logic -------
