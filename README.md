@@ -98,7 +98,8 @@ Expect(pizza1.listToppings()).toEqual("Green Peppers, Caramelized Onions, Feta")
 
 ## Known Bugs
 
-* _This project is still in development and not yet functional_
+* _User may select default select box value for pizza size, "Choose size..."_
+* _There is no form validation for empty selections_
 
 ## License
 *[MIT](https://choosealicense.com/licenses/mit/)*
