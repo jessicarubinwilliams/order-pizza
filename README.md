@@ -57,24 +57,23 @@ _Alternatively,_
 `
 Describe: Order()
 Test: "It will create Order instances with properties pizzas and currentOrderId"
-Expect(let order = new Order()).toEqual(Order { pizzas: {}, currentOrderId: 0 })
+Expect(let order = new Order()).toEqual(Order { pizzas: {}, currentOrderId: 0; totalDue: 0 })
 
 Describe: Order.prototype.addNumberOfPizzas(numberString)
 Test: "It will take a string as an argument, parse the string into a number, and add a property with the key "numberOfPizzas" and the value of the parsed argument"
-Expect(order.addNumberOfPizzas("1")).toEqual(Order { pizzas: {}, currentOrderId: 0, numberOfPizzas: 1 })
+Expect(order.addNumberOfPizzas("1")).toEqual(Order { pizzas: {}, currentOrderId: 0, totalDue: 0, numberOfPizzas: 1 })
 
 Describe: Order.prototype.assignId()
 Test: "It will increment the currentId property and return the newly incremented value"
-Expect(order.assignId).toEqual(Order { pizzas: {}, currentOrderId: 1 })
+Expect(order.assignId).toEqual(Order { pizzas: {}, currentOrderId: 1, totalDue: 0, numberOfPizzas: 1 })
 
 Describe: Order.prototype.addPizza(pizza)
 Test: "It will take a Pizza instance as an argument, call the assignID method, assign an id value to the Pizza instance, and add the Pizza instance to the Order's pizzas property"
-Expect(order.addPizza(pizza1)).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 }}, currentOrderId: 1 })
+Expect(order.addPizza(pizza1)).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 }}, currentOrderId: 1, totalDue: 0, numberOfPizzas: 1 })
 
 Describe: Order.prototype.addTotalDue(pizzaPrice)
-Test: "It will take the price of a single pizza as an argument, add a property with the key "totalDue" and the value of the argument. If the property already exists it will add the argument to the existing value"
-Expect(order.addTotalDue(this.pizzas(pizza1.price))).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 }}, currentOrderId: 1, totalDue: 23.13 })
-
+Test: "It will take the price of a single pizza as an argument and add the value of the argument to the totalDue property"
+Expect(order.addTotalDue(this.pizzas(pizza1.price))).toEqual(Order { pizzas: { 1: { toppings: ["Green Peppers", "Caramelized Onions", "Feta"], size: "medium", customerName: "Jamie", price: 23.13 }}, currentOrderId: 1, totalDue: 23.13, numberOfPizzas: 1 })
 
 Describe: Order.prototype.findPizza(id)
 Test-5: "It will take a pizza's id as an argument and return the Pizza instance with that id. If no pizza has that id it will return false"
