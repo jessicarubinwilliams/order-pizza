@@ -54,7 +54,7 @@ _Alternatively,_
 * _Direct your browser to a [live version on GitHub Pages.](https://jessicarubinwilliams.github.io/order-pizza/index.html)_
 
 ## Tests
-`
+```
 Describe: Order()
 Test: "It will create Order instances with properties pizzas and currentOrderId"
 Expect(let order = new Order()).toEqual(Order { pizzas: {}, currentOrderId: 0; totalDue: 0 })
@@ -94,7 +94,7 @@ Expect(pizza.price).toEqual(Pizza { toppings: ["Green Peppers", "Caramelized Oni
 Describe: Pizza.prototype.listToppings()
 Test: "It will return the toppings property's array value as a formatted string"
 Expect(pizza1.listToppings()).toEqual("Green Peppers, Caramelized Onions, Feta")
-`
+```
 
 ## Known Bugs
 
