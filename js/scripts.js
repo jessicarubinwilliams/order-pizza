@@ -102,8 +102,9 @@ function displayOrderDetails(orderToDisplay) {
   let htmlForOrderConfirmation = "";
   Object.keys(orderToDisplay.pizzas).forEach(function(key) {
     const pizza = orderToDisplay.findPizza(key);
-    htmlForOrderConfirmation += "<p id=" + pizza.id + ">" + pizza.customerName + ", the total for your " + pizza.size + " pizza with " + pizza.toppings.join(', ') + " is $" + pizza.price + ".</p>";
+    htmlForOrderConfirmation += "<p id=" + pizza.id + ">" + pizza.customerName + ", the total for your " + pizza.size + " pizza with " + pizza.toppings.join(', ') + " is $" + pizza.price.toFixed(2) + ".</p>";
   });
+  htmlForOrderConfirmation += "<br><h5>Your order total is $" + order.totalDue.toFixed(2) + ".</h5>"
   orderConfirmation.html(htmlForOrderConfirmation);
 };
 
