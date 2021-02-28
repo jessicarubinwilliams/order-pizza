@@ -2,7 +2,7 @@
 
 function Order() {
   this.pizzas = {};
-  this.currentPizzaId = 0
+  this.currentPizzaId = 0;
 }
 
 Order.prototype.assignId = function() {
@@ -59,6 +59,7 @@ Pizza.prototype.calculatePrice = function() {
     this.price *= 1.75
   }
   this.price = this.price.toFixed(2);
+  this.price = parseFloat(this.price);
 }
 
 Order.prototype.addNumberOfPizzas = function(numberString) {
