@@ -1,6 +1,6 @@
 # _Order Pizza_
 
-#### _A web-based application for a user to order a pizza._
+#### _A web-based application for a user to order a pizza and receive an order confirmation._
 
 #### By _**Jessica R. Williams**_
 
@@ -14,7 +14,7 @@
 
 ## Description
 
-_This is a an independent project for Week 1 of [Epicodus](https://www.epicodus.com/)'s [Intermediate JavaScript Course](https://www.learnhowtoprogram.com/intermediate-javascript)._
+_This is an independent project for the Object Oriented JavaScript section of [Epicodus](https://www.epicodus.com/)'s [Intermediate JavaScript Course](https://www.learnhowtoprogram.com/intermediate-javascript)._
 
 _The Project Prompt:_
 _Pizza Parlor_
@@ -104,5 +104,6 @@ Expect(pizza1.listToppings()).toEqual("Green Peppers, Caramelized Onions, Feta")
 ## License
 *[MIT](https://choosealicense.com/licenses/mit/)*
 Copyright (c) **_2021 Jessica R. Williams_**
+
 ## Contact Information
 **_Jessica R. Williams [mailto](mailto:jessicarubinwilliams@gmail.com)_**
